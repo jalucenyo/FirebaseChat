@@ -8,6 +8,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.luceno.firebasechat.BuildConfig
 import com.luceno.firebasechat.feature_auth.services.AccountService
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class AccountServiceImpl @Inject constructor() : AccountService {
@@ -19,13 +20,13 @@ class AccountServiceImpl @Inject constructor() : AccountService {
 
     override fun getUserUid(): String = Firebase.auth.currentUser?.uid ?: ""
 
-    override fun authenticateWithEmail(email: String, password: String,
-                                       onResult: (Throwable?) -> Unit) {
+    override fun signInWithEmail(email: String, password: String,
+                                 onResult: (Throwable?) -> Unit) {
         Firebase.auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { onResult(it.exception) }
     }
 
-    override fun authenticateWithGoogle(context: Context): Intent {
+    override fun signInWithGoogle(context: Context): Intent {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(BuildConfig.GOOGLE_REQUEST_ID_TOKEN)
             .requestEmail()
@@ -34,4 +35,8 @@ class AccountServiceImpl @Inject constructor() : AccountService {
         return GoogleSignIn.getClient(context, gso).signInIntent
     }
 
+    override suspend fun signUpWithEmail(email: String, password: String) {
+        Firebase.auth.createUserWithEmailAndPassword(email, password)
+            .await()
+    }
 }

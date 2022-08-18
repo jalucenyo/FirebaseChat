@@ -51,20 +51,6 @@ class ChatRoomViewModelTest {
     }
 
     @Test
-    fun `first test`(){
-        // Given
-        val subject = ChatRoomViewModel(accountService, messagesRepository, storageRepository)
-        val expectedText = "Test input message"
-
-        // When
-        subject.onInputMessageChange(expectedText)
-
-        // Then
-        assertEquals(expectedText, subject.state.value.message)
-
-    }
-
-    @Test
     fun `given a message when send then invoke repository sendMessage and update state`() = runTest {
 
         // Given

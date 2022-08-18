@@ -13,6 +13,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -32,12 +33,6 @@ fun SplashScreen(
         delay(delayMin)
         onNavigateTo()
     }
-    Splash()
-
-}
-
-@Composable
-fun Splash(){
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -52,7 +47,7 @@ fun Splash(){
             contentDescription = "Logo Lucenyo developer")
 
         Text(
-            text = "FirebaseChat",
+            text = stringResource(id = R.string.title),
             fontSize = 30.sp,
             fontWeight = FontWeight.Light,
             color = MaterialTheme.colors.onPrimary
@@ -65,7 +60,10 @@ fun Splash(){
 @Preview(showBackground = true)
 @Composable
 fun SplashScreenPreview() {
-    FirebaseChatTheme() {
-        Splash()
+    FirebaseChatTheme {
+        SplashScreen(
+            onLoad = {},
+            onNavigateTo = {}
+        )
     }
 }

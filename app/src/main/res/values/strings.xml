@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">FirebaseChat</string>
     <string name="login_email">Email</string>
+
+    <string name="title">FirebaseChat</string>
+    <string name="password">Contraseña</string>
+    <string name="error_login">El usuario o contraseña es incorrecto</string>
+    <string name="error_sign_up">No se ha podido crear la cuenta.</string>
+    <string name="error_sign_in_google">No se ha podido iniciar la session con tú cuenta de Google</string>
+    <string name="dot_not_a_have_account">¿No tienes una cuenta?</string>
+    <string name="sign_up">Registrate</string>
+    <string name="sign_in_with_google">Inicia sesion con Google</string>
+    <string name="sign_in">Iniciar sesión</string>
+    <string name="sign_in_to_your_account">Inicia sesion con tú cuenta</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="create_an_account">Crea una cuenta</string>
+    <string name="name_field">Nombre</string>
+    <string name="email_field">Email</string>
+    <string name="repeat_password">Repite la contraseña</string>
+    <string name="already_have_an_account">¿Ya tienes una cuenta?</string>
+    <string name="or">O</string>
+    <string name="sign_up_with">Registrate con</string>
 </resources>

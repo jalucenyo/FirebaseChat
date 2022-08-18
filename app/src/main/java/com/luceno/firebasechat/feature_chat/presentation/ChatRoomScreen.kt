@@ -38,9 +38,11 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.luceno.firebasechat.R
 import com.luceno.firebasechat.feature_chat.domain.models.Message
 import com.skydoves.landscapist.glide.GlideImage
 
@@ -62,7 +64,7 @@ fun ChatRoomScreen (
 
     Scaffold(
         topBar = { TopAppBar(
-            title = { Text(text = "FirebaseChat") },
+            title = { Text(text = stringResource(id = R.string.title )) },
             actions = {
                 IconButton(onClick = { viewModel.onSingOut(onSingOut) }) {
                     Icon(imageVector = Icons.Default.ExitToApp, contentDescription = "Bar Menu")

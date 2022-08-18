@@ -7,11 +7,13 @@ interface AccountService {
 
     fun isSignIn(): Boolean
 
-    fun authenticateWithEmail(email: String, password: String, onResult: (Throwable?) -> Unit)
+    fun signInWithEmail(email: String, password: String, onResult: (Throwable?) -> Unit)
 
-    fun authenticateWithGoogle(context: Context): Intent
+    fun signInWithGoogle(context: Context): Intent
 
     fun getDisplayName(): String
 
     fun getUserUid(): String
+
+    suspend fun signUpWithEmail(email: String, password: String)
 }
